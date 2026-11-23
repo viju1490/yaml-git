@@ -1,0 +1,21 @@
+# Fictional data-quality rules
+data_quality:
+  model: demo_policy_dq
+  severity_default: warning
+
+rules:
+  - name: policy_id_not_null
+    target_column: policy_id
+    rule_type: not_null
+    severity: error
+
+  - name: premium_non_negative
+    target_column: premium_amount
+    rule_type: greater_than_or_equal
+    expected_value: 0
+    severity: warning
+
+  - name: country_code_not_null
+    target_column: country_code
+    rule_type: not_null
+    severity: error

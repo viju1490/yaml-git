@@ -1,0 +1,20 @@
+# Fictional catalog metadata
+catalog:
+  id: practice_policy_catalog
+  version: 1
+
+tables:
+  - name: policy_raw
+    database: practice_db
+    schema: staging
+    primary_key:
+      - policy_id
+    columns:
+      - name: policy_id
+        data_type: STRING
+      - name: premium_amount
+        data_type: DECIMAL
+      - name: country_code
+        data_type: STRING
+      - name: business_date
+        data_type: DATE

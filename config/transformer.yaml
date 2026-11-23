@@ -1,0 +1,25 @@
+# Fictional transformation configuration
+transformer:
+  name: demo_policy_transformer
+  enabled: true
+
+input:
+  table: practice_db.staging.policy_raw
+
+output:
+  table: practice_db.curated.policy
+
+columns:
+  - source: policy_id
+    target: policy_id
+    expression: "TRIM(policy_id)"
+  - source: premium_amount
+    target: premium_amount
+    expression: "CAST(premium_amount AS DECIMAL)"
+  - source: country_code
+    target: country_code
+    expression: "UPPER(country_code)"
+
+execution:
+  mode: batch
+  partition_column: business_date

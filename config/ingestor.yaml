@@ -1,0 +1,27 @@
+# Fictional ingestion configuration for Git practice
+pipeline:
+  name: demo_policy_ingestion
+  environment: development
+  enabled: true
+
+source:
+  system: sample_policy_source
+  format: csv
+  file_path: ./sample_data/policies.csv
+  delimiter: ","
+  header: true
+
+target:
+  database: practice_db
+  schema: staging
+  table: policy_raw
+
+load:
+  mode: incremental
+  batch_size: 500
+  retry_count: 2
+  timeout_seconds: 120
+
+metadata:
+  owner: data_engineering_practice
+  description: "Training configuration only"
