@@ -22,4 +22,4 @@ columns:
 
 execution:
   mode: batch
-  partition_column: business_date
+  partition_column: business_dat
